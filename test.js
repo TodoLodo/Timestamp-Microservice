@@ -1,0 +1,1 @@
+console.log(parseInt("2015-12-25"));
