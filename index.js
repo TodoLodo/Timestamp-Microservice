@@ -29,11 +29,17 @@ app.get("/api/:date", function (req, res) {
   let _date = new Date(date);
 
   if (_date == "Invalid Date") {
+    _date = new Date(parseInt(date) * 1000);
+  }
+
+  if (_date == "Invalid Date") {
     res.json({ error : "Invalid Date" });
   }
   else {
     res.json({ unix: Math.floor(_date.getTime() / 1000), utc: _date.toUTCString() });
   }
+
+  console.log(_date)
 });
 
 // listen for requests :)
